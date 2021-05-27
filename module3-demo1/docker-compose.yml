@@ -5,10 +5,11 @@ services:
   postgres:
     build: ./docker/postgres
     image: pluralsight/postgres
+    container_name: airfolow-db
     restart: always
     container_name: postgres
     ports:
-      - "32769:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
@@ -24,6 +25,7 @@ services:
   airflow:
     build: ./docker/airflow
     image: pluralsight/airflow
+    container_name: airfolow
     restart: always
     container_name: airflow
     environment:
